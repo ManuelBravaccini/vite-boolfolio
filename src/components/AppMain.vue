@@ -1,19 +1,25 @@
 <script>
 import axios from 'axios';
+import ProjectCard from './partials/ProjectCard.vue';
 
 export default {
     name: 'AppMain',
+
+    components: {
+        ProjectCard,
+    },
+
     data() {
         return {
             projects: [],
             loading: false,
-            urlAddress: 'http://127.0.0.1:8000/api/projects',
+            apiUrl: 'http://127.0.0.1:8000/api/projects',
         }
     },
 
     methods: {
         getProjects() {
-            axios.get(this.urlAddress, {
+            axios.get(this.apiUrl, {
                 params: {
                 }
             })
@@ -42,19 +48,7 @@ export default {
                 <h1>Projects:</h1>
             </div>
             <div class="d-flex flex-wrap gap-5">
-                <article class="card col-2" v-for="(project, index) in projects" :key="index">
-                    <img :src=project.image class="card-img-top" :alt=project.image>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            {{ project.title }}
-                        </h5>
-                        <p class="card-text">
-                            {{ project.content.substr(0, 50) }}...
-                        </p>
-                        <a href="#" class="btn btn-primary">Show project</a>
-                    </div>
-                </article>
-
+                <ProjectCard :project="project" v-for="(project, index) in projects" :key="index" />
             </div>
         </div>
     </section>
