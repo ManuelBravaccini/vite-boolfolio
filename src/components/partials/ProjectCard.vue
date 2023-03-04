@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-    <article class="card col-2">
+    <article class="card col-2 mb-3">
 
         <img :src=project.image class="card-img-top" :alt=project.image>
 

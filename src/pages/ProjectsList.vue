@@ -1,13 +1,14 @@
 <script>
 import axios from 'axios';
-import ProjectCard from './partials/ProjectCard.vue';
+import ProjectCard from '../components/partials/ProjectCard.vue';
 
 export default {
-    name: 'AppMain',
+    name: 'ProjectsList',
 
     components: {
         ProjectCard,
     },
+
 
     data() {
         return {
@@ -41,17 +42,20 @@ export default {
 }
 </script>
 
-<template>
-    <section>
-        <div class="container">
-            <div class="row mb-5">
-                <h1>Projects:</h1>
-            </div>
-            <div class="d-flex flex-wrap gap-5">
-                <ProjectCard :project="project" v-for="(project, index) in projects" :key="index" />
+<template lang="">
+    <div class="container">
+        <div class="row">
+            <!-- TODO loader -->
+            <div class="col-12 mb-3">
+                <h2>
+                    Projects:
+                </h2>
             </div>
         </div>
-    </section>
+        <div class="row justify-content-around">
+            <ProjectCard :project="project" v-for="(project, index) in projects" :key="index" />
+        </div>
+    </div>
 </template>
 
 <style lang="">
