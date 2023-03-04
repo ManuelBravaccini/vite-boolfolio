@@ -13,13 +13,13 @@ export default {
         return {
             projects: [],
             loading: false,
-            apiUrl: 'http://127.0.0.1:8000/api/projects',
+            apiUrl: 'http://127.0.0.1:8000',
         }
     },
 
     methods: {
         getProjects() {
-            axios.get(this.apiUrl, {
+            axios.get(this.apiUrl + '/api/projects/', {
                 params: {
                 }
             })
